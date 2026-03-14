@@ -20,6 +20,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: github-pages
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -35,18 +36,21 @@ jobs:
 
       - name: Validate API base URL
         run: |
-          if [ -z "$VITE_API_BASE_URL" ]; then
-            echo "VITE_API_BASE_URL is missing. Set it as a repository variable or secret."
+          EFFECTIVE_API_BASE_URL="${VITE_API_BASE_URL_VAR:-$VITE_API_BASE_URL_SECRET}"
+
+          if [ -z "$EFFECTIVE_API_BASE_URL" ]; then
+            echo "VITE_API_BASE_URL is missing. Set it as a repo/environment variable or secret."
             exit 1
           fi
+
+          echo "EFFECTIVE_API_BASE_URL=$EFFECTIVE_API_BASE_URL" >> "$GITHUB_ENV"
         env:
-          VITE_API_BASE_URL: ${{ vars.VITE_API_BASE_URL || secrets.VITE_API_BASE_URL }}
+          VITE_API_BASE_URL_VAR: ${{ vars.VITE_API_BASE_URL }}
+          VITE_API_BASE_URL_SECRET: ${{ secrets.VITE_API_BASE_URL }}
 
       - name: Build frontend
-        run: npm run build
+        run: VITE_API_BASE_URL="$EFFECTIVE_API_BASE_URL" npm run build
         working-directory: frontend
-        env:
-          VITE_API_BASE_URL: ${{ vars.VITE_API_BASE_URL || secrets.VITE_API_BASE_URL }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
