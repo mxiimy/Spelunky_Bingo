@@ -1,10 +1,15 @@
 :root {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Pixelify Sans", system-ui, sans-serif;
+}
+
+* {
+  font-family: inherit;
 }
 
 body {
+  font-family: "Pixelify Sans", system-ui, sans-serif;
   margin: 0;
-  background: #ffffff;
+  background: #000000;
   color: #111111;
 }
 
@@ -13,59 +18,144 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 24px;
+  padding: 10px 10px;
   box-sizing: border-box;
+  background-color: #000000;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.header-bar {
+  width: min(1100px, 100%);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.header-chip {
+  font-size: 1.67rem;
+  color: #ffffff;
+  text-align: center;
 }
 
 .title {
-  margin: 0 0 24px;
-  font-size: 2rem;
+  margin: 0;
+  font-size: 1.67rem;
   font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  width: min(820px, 100%);
+  margin-bottom: 8px;
+}
+
+.tab-button {
+  background: rgba(255, 255, 255, 0.9);
+  color: #111111;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+
+.tab-button:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.tab-button.active {
+  border-color: #111111;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.6);
 }
 
 .prompt-row {
   display: grid;
-  grid-template-columns: repeat(5, minmax(120px, 1fr));
-  gap: 12px;
-  width: min(1100px, 100%);
-  margin-bottom: 20px;
+  grid-template-columns: repeat(5, minmax(100px, 1fr));
+  gap: 7px;
+  width: min(820px, 100%);
+  margin-bottom: 8px;
 }
 
 .prompt-box {
+  background: rgba(255, 255, 255, 0.9);
+  color: #111111;
   border: 1px solid #d4d4d4;
-  border-radius: 8px;
-  min-height: 140px;
-  padding: 12px;
+  border-radius: 4px;
+  min-height: 84px;
+  padding: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 0.95rem;
-  line-height: 1.35;
+  font-size: 0.93rem;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.prompt-box:hover {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: #b5b5b5;
+}
+
+.prompt-box.marked {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: #8a8a8a;
 }
 
 .status {
-  margin: 0 0 16px;
+  margin: 0 0 8px;
+  font-size: 0.97rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 6px 10px;
+  border-radius: 4px;
 }
 
 .status.error {
   color: #b00020;
 }
 
+.actions-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
 .refresh-button {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.9);
   color: #111111;
   border: 1px solid #111111;
-  border-radius: 8px;
-  padding: 10px 16px;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 0.97rem;
   cursor: pointer;
 }
 
 .refresh-button:hover {
-  background: #f5f5f5;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.refresh-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 @media (max-width: 900px) {
+  .header-bar {
+    grid-template-columns: 1fr;
+  }
+
   .prompt-row {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }

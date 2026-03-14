@@ -29,7 +29,12 @@ python3 backend/app.py
 
 API endpoints:
 - `GET /api/health`
-- `GET /api/prompts?count=5`
+- `GET /api/areas`
+- `GET /api/prompts?count=25&area=dwelling`
+
+Area tabs are driven by text files in `prompts/areas/`.
+Each `*.txt` file becomes one tab (`tide_pool.txt` -> `Tide Pool`).
+Add, remove, or edit files in that folder to customize the tab list.
 
 ## Frontend (React)
 
@@ -51,7 +56,8 @@ The frontend uses `VITE_API_BASE_URL` (default `http://localhost:8000`).
 1. Push to `main`.
 2. In GitHub repo settings:
    - Enable Pages source as **GitHub Actions**.
-3. Add repository secret:
+3. Add repository variable (Actions):
    - `VITE_API_BASE_URL` = your deployed backend URL (for example, Render/Railway/Fly.io).
 
 Important: GitHub Pages can host only static files. The Python backend must be deployed to a separate service, then the frontend calls it via `VITE_API_BASE_URL`.
+Use an `https://` backend URL when calling from GitHub Pages.

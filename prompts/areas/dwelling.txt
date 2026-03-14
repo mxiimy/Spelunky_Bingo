@@ -1,0 +1,25 @@
+Break a pot in Dwelling
+Trigger an arrow trap in Dwelling
+Stun a caveman in Dwelling
+Whip a bat in Dwelling
+Collect 5,000 gold in Dwelling
+Find climbing gloves in Dwelling
+Find spike shoes in Dwelling
+Find spectacles in Dwelling
+Find paste in Dwelling
+Open 3 crates in Dwelling
+Rescue a pet in Dwelling
+Carry an idol to exit in Dwelling
+Find a shop in Dwelling
+Buy any item in Dwelling
+Steal from a Dwelling shop
+Use a rope to reach a crate in Dwelling
+Complete Dwelling 1-1 under 1 minute
+Complete a Dwelling level without bombs
+Complete a Dwelling level without taking damage
+Kill a mole in Dwelling
+Kill a lizard in Dwelling
+Break a totem trap in Dwelling
+Trigger a landmine safely in Dwelling
+Stun a shopkeeper in Dwelling
+Exit Dwelling with 10,000+ gold
