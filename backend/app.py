@@ -1,10 +1,15 @@
 from pathlib import Path
 import random
+import sys
 
-from flask import Flask, jsonify, request
-from flask_cors import CORS
+# Ensure the repo root is on the path so bingo_generator can be imported
+# whether the app is started from the root or from backend/
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from bingo_generator import read_prompts
+from flask import Flask, jsonify, request  # noqa: E402
+from flask_cors import CORS  # noqa: E402
+
+from bingo_generator import read_prompts  # noqa: E402
 
 
 DEFAULT_PROMPTS_FILE = Path(__file__).resolve().parent.parent / "prompts.txt"
